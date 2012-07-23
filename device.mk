@@ -121,8 +121,10 @@ PRODUCT_PACKAGES += \
 	tvouthack
 
 # Misc packages
-#PRODUCT_PACKAGES += \
-#	Torch
+PRODUCT_PACKAGES += \
+	Torch \
+	Superuser \
+	SamsungServiceMode
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
