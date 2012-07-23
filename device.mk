@@ -124,7 +124,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	Torch \
 	Superuser \
-	SamsungServiceMode
+	SamsungServiceMode \
+	su
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
