@@ -11,6 +11,9 @@ on init
     mkdir /storage/sdcard0 0000 system system
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
+	
+	# Increase read ahead on moviNAND
+	write /sys/devices/virtual/bdi/179:0/read_ahead_kb 1024
 
     # We will create our own ril-daemon service in class 'core' because the
     # rild doesn't like being killed. (During device encryption.)
@@ -143,8 +146,8 @@ on post-fs-data
     exec /system/bin/sysinit
 
 # create data/gps for GPS demon
-    mkdir /data/gps 771 system system
-    chown system /data/gps
+    mkdir /data/gps 771 gps system
+    chown gps /data/gps
     chmod 771 /data/gps
     chown gps root /sys/class/sec/gps/GPS_PWR_EN/value
     chmod 660 /sys/class/sec/gps/GPS_PWR_EN/value
@@ -269,19 +272,19 @@ service geomagneticd /system/vendor/bin/geomagneticd
     user compass
     group system input
 
-service gps-daemon /system/vendor/bin/gpsd
-    class late_start
-    user system
+service gpsd /system/vendor/bin/gpsd
+    class main
+    user gps
     group system inet
+
+service gpsfix /system/bin/gpsfix
+    class main
+    user root
+    group root
+    oneshot
 
 service tvout /system/bin/tvoutserver
     class late_start
     user system
     group graphics
-    disabled
-
-service tvouthack /system/bin/tvouthack
-    user system
-    group graphics
-    disabled
 

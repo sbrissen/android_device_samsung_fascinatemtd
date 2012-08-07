@@ -66,6 +66,14 @@ PRODUCT_COPY_FILES += \
 # ppp
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/ip-up:system/etc/ppp/ip-up
+	
+# gps
+PRODUCT_COPY_FILES += \
+  device/samsung/fascinatemtd/gpsfix:system/bin/gpsfix
+	
+# Misc	
+PRODUCT_COPY_FILES += \
+	device/samsung/fascinatemtd/apns-conf.xml:system/etc/apns-conf.xml
 
 # Generated kcm keymaps
 PRODUCT_PACKAGES := \
@@ -117,8 +125,7 @@ PRODUCT_PACKAGES += \
 
 # Device-specific packages
 PRODUCT_PACKAGES += \
-	AriesParts \
-	tvouthack
+	AriesParts
 
 # Misc packages
 PRODUCT_PACKAGES += \
@@ -126,6 +133,15 @@ PRODUCT_PACKAGES += \
 	Superuser \
 	SamsungServiceMode \
 	su
+	
+# T-Mobile theme engine
+PRODUCT_PACKAGES += \
+       ThemeManager \
+       ThemeChooser \
+       com.tmobile.themes
+
+PRODUCT_COPY_FILES += \
+       device/samsung/fascinatemtd/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -207,7 +223,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage
-
+	
+# Misc settings
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.strictmode.visual=0
+	
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
 
 # we have enough storage space to hold precise GC data
