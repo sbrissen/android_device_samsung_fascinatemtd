@@ -64,10 +64,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/ip-up:system/etc/ppp/ip-up
 	
-# gps
-PRODUCT_COPY_FILES += \
-  device/samsung/fascinatemtd/gpsfix:system/bin/gpsfix
-	
 # Misc	
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/apns-conf.xml:system/etc/apns-conf.xml
@@ -126,23 +122,17 @@ PRODUCT_PACKAGES += \
 
 # Device-specific packages
 PRODUCT_PACKAGES += \
-<<<<<<< HEAD
 	AriesParts
 
 # Misc packages
 PRODUCT_PACKAGES += \
 	SamsungServiceMode
-	
-=======
-	AriesParts \
-	Torch
 
 # Charger
 PRODUCT_PACKAGES += \
 	charger \
 	charger_res_images
 
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -210,12 +200,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # enable repeatable keys in cwm
 PRODUCT_PROPERTY_OVERRIDES += \
-<<<<<<< HEAD
-    ro.cwm.enable_key_repeat=true
-=======
     ro.cwm.enable_key_repeat=true \
     ro.cwm.repeatable_keys=102,114,115,139
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -240,12 +226,9 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
-<<<<<<< HEAD
 # See comment at the top of this file. This is where the other
 # half of the device-specific product definition file takes care
 # of the aspects that require proprietary drivers that aren't
 # commonly available
 $(call inherit-product-if-exists, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)
 $(call inherit-product-if-exists, vendor/common/common.mk)
-=======
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69

@@ -14,27 +14,13 @@
      limitations under the License.
 -->
 
-<<<<<<< HEAD
-<!-- Tuna-specific phone app resources. -->
-<resources>
-
-    <!-- Flag indicating if the tty is enabled -->
-    <bool name="tty_enabled">false</bool>
-	
-	    <!-- Sprint Message Wait Indicator Quirk
-=======
 <!-- Phone app resources that may need to be customized
      for different hardware or product builds. -->
 <resources>
     <!-- Sprint Message Wait Indicator Quirk
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
          If true, message wait indicators are hidden by default on this device
          unless the user enables it in Call Settings.  This quirk is necessary
          for the "Phantom Voicemail" issue where notifications that are
          impossible to dismiss on the Sprint network. -->
     <bool name="sprint_mwi_quirk">true</bool>
-<<<<<<< HEAD
-
-=======
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
 </resources>

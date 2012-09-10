@@ -16,12 +16,7 @@
 
 #include <math.h>
 
-<<<<<<< HEAD
-//#define LOG_NDEBUG 0
-
-=======
 #define LOG_NDEBUG 0
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
 #define LOG_TAG "AudioHardware"
 
 #include <utils/Log.h>

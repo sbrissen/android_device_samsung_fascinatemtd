@@ -44,12 +44,9 @@ on property:ril.bt_macaddr=*
   start bdaddr
 
 on fs
-<<<<<<< HEAD
-=======
     # We don't support encryption on yaffs
     setprop ro.crypto.state unsupported
 
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
     mount ext4 /dev/block/mmcblk0p1 /system ro noatime nodev nomblk_io_submit errors=panic wait
     mount ext4 /dev/block/mmcblk0p2 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
 
@@ -144,11 +141,7 @@ on post-fs-data
 
 # create data/gps for GPS demon
     mkdir /data/gps 771 gps system
-<<<<<<< HEAD
-    chown gps /data/gps
-=======
     chown gps system /data/gps
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
     chmod 771 /data/gps
     chown gps root /sys/class/sec/gps/GPS_PWR_EN/value
     chmod 660 /sys/class/sec/gps/GPS_PWR_EN/value
@@ -268,23 +261,6 @@ service geomagneticd /system/vendor/bin/geomagneticd
 
 service gpsd /system/vendor/bin/gpsd
     class main
-<<<<<<< HEAD
-    user gps
-    group system inet
-
-service gpsfix /system/bin/gpsfix
-    class main
-    user root
-    group root
-    oneshot
-
-service bdaddr /system/bin/bdaddr_read-cdma
-    class main
-    user root
-    disabled
-    oneshot
-
-=======
     user system
     group system inet
 
@@ -294,7 +270,6 @@ service bdaddr /system/bin/bdaddr_read-cdma
     disabled
     oneshot
 
->>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
 service tvout /system/bin/tvoutserver
     class main
     user root
