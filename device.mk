@@ -38,8 +38,6 @@
 # These are the hardware-specific overlay, which points to the location
 # of hardware-specific resource overrides, typically the frameworks and
 # application settings that are stored in resourced.
-DEVICE_PACKAGE_OVERLAYS := device/samsung/fascinatemtd/overlay \
-    device/samsung/aries-common/overlay     
 
 # These are the hardware-specific configuration files
 PRODUCT_COPY_FILES := \
@@ -120,7 +118,7 @@ PRODUCT_PACKAGES += \
 	sensors.aries
 
 PRODUCT_COPY_FILES += \
-	device/samsung/aries-common/libaudio/audio_policy.conf:system/etc/audio_policy.conf
+	device/samsung/fascinatemtd/libaudio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Libs
 PRODUCT_PACKAGES += \
@@ -128,12 +126,23 @@ PRODUCT_PACKAGES += \
 
 # Device-specific packages
 PRODUCT_PACKAGES += \
+<<<<<<< HEAD
 	AriesParts
 
 # Misc packages
 PRODUCT_PACKAGES += \
 	SamsungServiceMode
 	
+=======
+	AriesParts \
+	Torch
+
+# Charger
+PRODUCT_PACKAGES += \
+	charger \
+	charger_res_images
+
+>>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -155,12 +164,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.opengles.version=131072
 
-# Verizon cdma stuff
+# Generic CDMA stuff
 PRODUCT_PROPERTY_OVERRIDES += \
        ro.telephony.default_network=4 \
        ro.ril.def.agps.mode=2 \
-       ro.cdma.home.operator.numeric=310004 \
-       ro.cdma.home.operator.alpha=Verizon \
        ro.cdma.homesystem=64,65,76,77,78,79,80,81,82,83 \
        ro.cdma.data_retry_config=default_randomization=2000,0,0,120000,180000,540000,960000 \
        ro.cdma.otaspnumschema=SELC,3,00,07,80,87,88,99 \
@@ -168,7 +175,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
        ro.telephony.call_ring.multiple=false \
        ro.telephony.call_ring.delay=3000 \
        net.cdma.pppd.authtype=require-chap \
-       net.cdma.pppd.user=user[SPACE]VerizonWireless \
        net.cdma.datalinkinterface=/dev/ttyCDMA0 \
        net.cdma.ppp.interface=ppp0 \
        net.connectivity.type=CDMA1 \
@@ -182,8 +188,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Note that the only such settings should be the ones that are too low-level to
 # be reachable from resources or other mechanisms.
 PRODUCT_PROPERTY_OVERRIDES += \
-       wifi.interface=wlan0 \
-       dalvik.vm.heapsize=48m
+       wifi.interface=wlan0
 
 # enable Google-specific location features,
 # like NetworkLocationProvider and LocationCollector
@@ -205,7 +210,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # enable repeatable keys in cwm
 PRODUCT_PROPERTY_OVERRIDES += \
+<<<<<<< HEAD
     ro.cwm.enable_key_repeat=true
+=======
+    ro.cwm.enable_key_repeat=true \
+    ro.cwm.repeatable_keys=102,114,115,139
+>>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -221,6 +231,7 @@ include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_COPY_FILES += \
+    device/samsung/aries-common/bml_over_mtd.sh:bml_over_mtd.sh \
     device/samsung/aries-common/updater.sh:updater.sh
 
 # decoy recovery kernel
@@ -229,9 +240,12 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
+<<<<<<< HEAD
 # See comment at the top of this file. This is where the other
 # half of the device-specific product definition file takes care
 # of the aspects that require proprietary drivers that aren't
 # commonly available
 $(call inherit-product-if-exists, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)
 $(call inherit-product-if-exists, vendor/common/common.mk)
+=======
+>>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69

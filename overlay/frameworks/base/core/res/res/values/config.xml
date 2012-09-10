@@ -35,6 +35,12 @@
 
     <!-- If this value is true, we handle Samsung CDMA's message ID method -->
     <bool name="config_smsSamsungCdmaAlternateMessageIDEncoding">true</bool>
+<<<<<<< HEAD
+=======
+
+    <!-- Boolean to enable stk functionality on Samsung phones -->
+    <bool name="config_samsung_stk">false</bool>
+>>>>>>> 350c41326d0cf95f2b1cd3ab3cd217f73ed42d69
 
     <!-- Hardware 'face' keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
