@@ -132,20 +132,8 @@ PRODUCT_PACKAGES += \
 
 # Misc packages
 PRODUCT_PACKAGES += \
-	Torch \
-	Superuser \
-	SamsungServiceMode \
-	su
+	SamsungServiceMode
 	
-# T-Mobile theme engine
-PRODUCT_PACKAGES += \
-       ThemeManager \
-       ThemeChooser \
-       com.tmobile.themes
-
-PRODUCT_COPY_FILES += \
-       device/samsung/fascinatemtd/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
-
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -219,10 +207,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true
 
-# We have sacrificed /cache for a larger /system, so it's not large enough for dalvik cache
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dexopt-data-only=1
-
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage
@@ -250,3 +234,4 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329
 # of the aspects that require proprietary drivers that aren't
 # commonly available
 $(call inherit-product-if-exists, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)
+$(call inherit-product-if-exists, vendor/common/common.mk)
