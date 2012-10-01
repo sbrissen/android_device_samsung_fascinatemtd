@@ -203,6 +203,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true \
     ro.cwm.repeatable_keys=102,114,115,139
 
+# Enable HighEnd Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.override.highendgfx=1
+
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage
