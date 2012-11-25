@@ -43,8 +43,7 @@
 PRODUCT_COPY_FILES := \
 	device/samsung/fascinatemtd/vold.fstab:system/etc/vold.fstab \
 	device/samsung/aries-common/egl.cfg:system/lib/egl/egl.cfg \
-	device/samsung/aries-common/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
-	device/samsung/aries-common/main.conf:system/etc/bluetooth/main.conf
+	device/samsung/aries-common/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -166,7 +165,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
        net.interfaces.defaultroute=cdma \
        mobiledata.interfaces=ppp0 \
        ro.ril.samsung_cdma=true \
-       ro.telephony.ril_class=SamsungRIL \
+       ro.telephony.ril_class=SamsungExynos3RIL \
        ro.telephony.ril.v3=datacall
 
 # These are the hardware-specific settings that are stored in system properties.
@@ -193,18 +192,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
 
-# keep dalvik on /data partition
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dexopt-data-only=1
-
 # enable repeatable keys in cwm
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true \
     ro.cwm.repeatable_keys=102,114,115,139
-
-# Enable HighEnd Graphics
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.override.highendgfx=1
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -223,5 +214,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/fascinatemtd/recovery_kernel:recovery_kernel
 
+# wifi
+PRODUCT_PACKAGES += libnetcmdiface
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
