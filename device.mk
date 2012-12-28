@@ -122,7 +122,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	AriesParts \
 	Torch \
-	SuperUSer \
+	Superuser \
 	su
 
 # Charger
