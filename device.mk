@@ -121,7 +121,9 @@ PRODUCT_PACKAGES += \
 # Device-specific packages
 PRODUCT_PACKAGES += \
 	AriesParts \
-	Torch
+	Torch \
+	SuperUSer \
+	su
 
 # Charger
 PRODUCT_PACKAGES += \
